@@ -8,29 +8,15 @@
 section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, auto));
-  grid-gap: 10px;
   align-items: center;
   margin: 0 auto;
-  padding: 0 150px;
+  padding: 50px 150px;
   width: 100%;
   height: 100vh;
   color: #7582CA;
   background-color: #EBEDF8;
   line-height: 2rem;
   font-family: 'Roboto', sans-serif;
-}
-
-section::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 0;
-  top: 0;
-  right: 200px;
-  background: linear-gradient(to right, rgba(172, 179, 221, 0.1), #EBEDF8);
-  width: 300px;
-  height: 300px;
-  transform: skew(40deg);
 }
 
 section::before {
@@ -40,21 +26,36 @@ section::before {
   height: 0;
   bottom: 0;
   left: 0;
-  width: 37em;
+  width: 39em;
   height: 39em;
   background-color: rgba(172, 179, 221, 0.1);
   border-radius: 100% 0 0 0;
 }
 
+section::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 0;
+  right: 250px;
+  background: linear-gradient(to right, rgba(172, 179, 221, 0.1), #EBEDF8);
+  width: 300px;
+  height: 300px;
+  transform: skew(40deg);
+}
+
 section .container {
   max-width: 900px;
   width: 100%;
-  padding-left: 20px;
+  padding: 0 20px;
   margin: 0 auto;
+  display: grid;
+  justify-items: center;
 }
 
 section .container .hero {
-  margin-right: 12rem;
+  max-width: 550px;
 }
 
 section .container .hero__intro {
@@ -89,6 +90,10 @@ section .container .hero__btn {
   margin: 35px 0;
 }
 
+section .container .cards {
+  max-width: 400px;
+}
+
 section .container .cards .cards__box {
   display: flex;
   flex-direction: column;
@@ -98,7 +103,7 @@ section .container .cards .cards__box {
 
 section .container .cards .cards__box__top {
   position: relative;
-  top: -1.5rem;
+  top: -4rem;
 }
 
 section .container .cards .cards__box__top::after {
@@ -106,10 +111,10 @@ section .container .cards .cards__box__top::after {
   position: absolute;
   width: 0;
   height: 0;
-  bottom: 160px;
-  right: -175px;
-  border-top: 330px solid rgba(172, 179, 221, 0.1);
-  border-left: 330px solid transparent;
+  bottom: 180px;
+  right: -150px;
+  border-top: 300px solid rgba(172, 179, 221, 0.1);
+  border-left: 300px solid transparent;
 }
 
 section .container .cards .cards__box .card {
@@ -119,10 +124,10 @@ section .container .cards .cards__box .card {
   background: #FFFFFF;
   border-radius: 5px;
   border: 1px solid #c9c9c6;
-  margin-top: 30px;
+  margin-top: 60px;
   padding: 3em;
   min-height: 200px;
-  width: 400px;
+  width: 100%;
   position: relative;
   z-index: 1;
 }
@@ -158,4 +163,17 @@ section .container .cards .cards__box .card__title {
   color: #1A237E;
   margin: 15px 0;
   font-weight: 400;
+}
+
+@media (max-width: 1200px) {
+  .section {
+    grid-template-columns: repeat(1, 1fr);
+    height: 100%;
+  }
+  .section::after, .section::before {
+    content: none;
+  }
+  .section .container .cards .cards__box__top::after {
+    content: none;
+  }
 }
